@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% import "components/paginator.html" as paginator %}
+{% import "components/post-list.html" as post_list %}
+
+{% block main %}
+    {% if paginator.pages %}
+        {{ post_list::post_list(paginator=paginator) }}
+    {% else %}
+        <h1 style="text-align: center;">Under Construction 🚧 - Coming Soon</h1>
+    {% endif %}
+    {{ paginator::buttons(
+        container_id="post-list-pagination",
+        previous_link=paginator.previous,
+        previous_text="‹ Previous",
+        next_link=paginator.next,
+        next_text="Next ›") }}
+{% endblock main %}

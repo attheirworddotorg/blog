@@ -1,0 +1,8 @@
+@use "sass:map";
+
+@use "config";
+
+#post-footer {
+  border-top: .8px solid map.get(config.$theme, "font" "primary");
+  margin-top: 20px;
+}

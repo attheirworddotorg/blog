@@ -1,0 +1,38 @@
+@use "sass:map";
+
+@use "config";
+@use "components/socials";
+@use "utils";
+
+$footer-side-margin: 20px;
+$footer-max-screen-width: config.$body-width + 2 * config.$padding-side + socials.$social-icon-width + $footer-side-margin - 1;
+
+#site-container {
+  margin: 20px auto 4rem auto;
+  width: config.$body-width;
+
+  footer {
+    left: $footer-side-margin;
+    position: absolute;
+    top: 20px;
+
+    @include utils.screen-width($footer-max-screen-width) {
+      display: none;
+    }
+  }
+}
+
+#main-container {
+  padding-left: config.$padding-side;
+  padding-right: config.$padding-side;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// underline links in paragraphs
+p > a {
+  text-decoration: underline;
+}

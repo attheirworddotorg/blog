@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% import "components/table-of-contents.html" as table_of_contents %}
+
+{% block main %}
+    {{ table_of_contents::toc(page=page) }}
+    <div id="about">
+        {{ page.content | safe }}
+    </div>
+{% endblock main %}

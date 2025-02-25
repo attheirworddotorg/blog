@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% import "components/paginator.html" as paginator %}
+{% import "components/post-header.html" as post_header %}
+{% import "components/table-of-contents.html" as table_of_contents %}
+
+{% block main %}
+    {{ table_of_contents::toc(page=page) }}
+    {{ post_header::post_header(page=page) }}
+    <article id="post-container">
+        <div id="content">
+            {{ page.content | safe }}
+        </div>
+    </article>
+    <div id="post-footer">
+        {{ paginator::post_buttons(
+            container_id="pagination",
+            previous_page=page.lower,
+            next_page=page.higher) }}
+    </div>
+    <script src="https://utteranc.es/client.js"
+        repo="attheirworddotorg/blog"
+        issue-term="{{ page.title }} - Comments"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+{% endblock main %}

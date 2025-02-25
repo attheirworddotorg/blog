@@ -1,0 +1,18 @@
+{% macro post_header(page) %}
+    <header class="post-header">
+        <h1 class="title">
+            <a href="{{ page.permalink }}">{{ page.title }}</a>
+        </h1>
+        <div class="metadata">
+            <span class="publish-date">{{ page.date | date(format="%F") }} </span>
+            <span class="metadata-divider"></span>
+            <span class="word-count">{{ page.word_count }} words (est. {{ page.reading_time }} min)</span>
+            {% if page.taxonomies.tags %}
+                <span class="metadata-divider"></span>
+                {% for tag in page.taxonomies.tags %}
+                    <a class="tag" href="{{ get_taxonomy_url(kind="tags", name=tag) }}">#{{ tag }}</a>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </header>
+{% endmacro post_header %}

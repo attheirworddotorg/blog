@@ -1,0 +1,14 @@
+@use "sass:map";
+
+@use "config";
+
+@mixin disabled() {
+  color: map.get(config.$theme, "font", "disabled");
+  pointer-events: none;
+}
+
+@mixin screen-width($max-width: config.$body-width + 15) {
+   @media screen and (max-width: $max-width) {
+     @content;
+   }
+}

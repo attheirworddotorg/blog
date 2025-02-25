@@ -1,0 +1,66 @@
+@use "sass:map";
+
+@use "animations";
+@use "config";
+
+.metadata {
+  color: map.get(config.$theme, "font", "accent");
+}
+
+.metadata-divider {
+    padding-right: .3em;
+    padding-left: .3em;
+    font-size: 16px;
+    white-space: nowrap;
+    font-weight: 400;
+    display: inline;
+}
+
+.metadata-divider::after {
+    content: '\00B7';
+}
+
+#post-list-container {
+  .post-list-item {
+    border-bottom: .8px solid map.get(config.$theme, "font" "primary");
+    padding-bottom: 20px;
+
+    .read-link {
+      margin-top: 10px;
+
+      a {
+        color: map.get(config.$theme, "font", "accent");;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+#post-list-pagination {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .paginate {
+    font-size: 18px;
+    transition: transform 0.3s ease-out;
+  }
+
+  #next {
+    align-self: right;
+
+    @include animations.underline-from-center
+  }
+
+  #previous {
+    @include animations.underline-from-center
+  }
+}

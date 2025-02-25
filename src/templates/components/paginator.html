@@ -1,0 +1,26 @@
+{% macro buttons(container_id, previous_link, previous_text, next_link, next_text) %}
+    {% if previous_link or next_link %}
+        <nav id="{{ container_id }}">
+            {% if previous_link %}
+                <a id="previous" class="paginate" href="{{ previous_link }}">{{ previous_text }}</a>
+            {% endif %}
+            {% if next_link %}
+                <a id="next" class="paginate" href="{{ next_link }}">{{ next_text }}</a>
+            {% endif %}
+        </nav>
+    {% endif %}
+{% endmacro next_previous %}
+
+{% macro post_buttons(container_id, previous_page, next_page) %}
+    {% if previous_page or next_page %}
+        <nav id="{{ container_id }}">
+            {% if previous_page.permalink %}
+                <a id="previous" class="paginate" href="{{ previous_page.permalink }}">‹ {{ previous_page.title }}</a>
+            {% endif %}
+            {% if next_page.permalink %}
+                <a id="next" class="paginate" href="{{ next_page.permalink }}">{{ next_page.title }} ›</a>
+            {% endif %}
+        </nav>
+    {% endif %}
+{% endmacro post_buttons %}
+

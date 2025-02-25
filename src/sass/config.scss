@@ -1,0 +1,14 @@
+$body-width: 1000px;
+$padding-side: 20px;
+
+$theme: (
+  "color": (
+    "background": #DEDACF,
+    "underline": rgb(178, 52, 51)
+  ),
+  "font": (
+    "accent": rgb(47, 77, 116),
+    "disabled": rgba(47, 77, 116, .5),
+    "primary": #0A1218
+  )
+);
