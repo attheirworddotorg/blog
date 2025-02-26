@@ -19,9 +19,9 @@
             next_page=page.higher) }}
     </div>
     <script src="https://utteranc.es/client.js"
-        repo="attheirworddotorg/blog"
+        repo="{{ config.extra.atw_comments.repo }}"
         issue-term="{{ page.title }} - Comments"
-        theme="github-light"
+        theme="{{ config.extra.atw_comments.theme }}"
         crossorigin="anonymous"
         async>
     </script>
