@@ -1,0 +1,6 @@
+// Remove top margin on first header because no post header element
+#about {
+  & > h1 {
+    margin-top: 0px;
+  }
+}

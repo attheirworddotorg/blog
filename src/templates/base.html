@@ -1,3 +1,4 @@
+{% import "components/mobile-nav.html" as mobile_nav %}
 {% import "components/desktop-nav.html" as desktop_nav %}
 {% import "components/socials.html" as socials %}
 
@@ -26,6 +27,7 @@
     </head>
     <body>
         <div id="site-container">
+            {{ mobile_nav::nav() }}
             {{ desktop_nav::nav() }}
 
             <main id="main-container">

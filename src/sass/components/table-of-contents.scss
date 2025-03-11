@@ -40,7 +40,7 @@ $max-screen-width: 2 * $container-width + 2 * config.$padding-side + $margin-lef
     }
   }
 
-  @include utils.screen-width($max-screen-width) {
+  @include utils.screen-max-width($max-screen-width) {
     display: none;
   }
 }

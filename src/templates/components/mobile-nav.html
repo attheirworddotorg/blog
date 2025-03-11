@@ -1,0 +1,29 @@
+{% import "components/socials.html" as socials %}
+
+{% macro nav() %}
+    <div id="navbar-mobile">
+        <div id="branding">
+            <a href="{{ config.base_url }}">
+                <img id="logo" src="{{ get_url(path="images/logo.png", trailing_slash=false) }}" />
+                {{ config.title }}
+            </a>
+            <p id="description">{{ config.description }}</p>
+        </div>
+        <input id="sidebar-controller" type="checkbox" >
+        <label for="sidebar-controller">
+            <img id="icon" src="{{ get_url(path="images/hamburger-menu.svg", trailing_slash=false) }}" />
+        </label>
+        <nav id="menu">
+            <ul id="tabs">
+                {% for item in config.extra.atw_menu %}
+                    <li>
+                        <a id="{{ item.id }}" href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}">
+                            {{ item.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            {{ socials::socials() }}
+        </nav>
+    </div>
+{% endmacro nav %}

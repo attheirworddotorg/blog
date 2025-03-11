@@ -1,8 +1,8 @@
 @use "sass:map";
 
-@use "animations";
-@use "config";
-@use "utils";
+@use "../animations";
+@use "../config";
+@use "../utils";
 
 #navbar-desktop {
     border-bottom: 2px solid map.get(config.$theme, "font", "primary");
@@ -55,7 +55,7 @@
       }
     }
 
-  @include utils.screen-width() {
+  @include utils.screen-max-width() {
     display: none;
   }
 }

@@ -1,0 +1,108 @@
+@use "sass:map";
+
+@use "socials";
+@use "../animations";
+@use "../config";
+@use "../utils";
+
+$menu-icon-dimension: 30px;
+$menu-icon-margin: 10px;
+$menu-width: 150px;
+
+#navbar-mobile {
+  background-color: map.get(config.$theme, "color", "background");
+  box-shadow: 0px 2px 2px map.get(config.$theme, "color", "shadow");
+  display: none;
+  height: 45px;
+  left: 0px;
+  padding-top: 5px;
+  position: fixed;
+  text-align: center;
+  top: 0px;
+  transition: transform 300ms ease;
+  width: 100%;
+
+  #sidebar-controller {
+    display: none;
+
+    &:checked + label + #menu {
+      transform: translateX(0px);
+    }
+  }
+
+  #icon {
+    cursor: pointer;
+    height: $menu-icon-dimension;
+    left: $menu-icon-margin;
+    position: fixed;
+    top: $menu-icon-margin;
+    width: $menu-icon-dimension;
+  }
+
+  #branding {
+    font-weight: 400;
+
+    a {
+      font-size: 21px;
+
+      #logo {
+        display: inline-block;
+        height: 18px;
+        left: 3px;
+        position: relative;
+        top: 3px;
+        width: 18px;
+      }
+    }
+
+    #description {
+      font-size: 11px;
+      margin: 0px;
+    }
+  }
+
+  #menu {
+    background-color: map.get(config.$theme, "color", "background");
+    box-shadow: 0px 2px 2px map.get(config.$theme, "color", "shadow");
+    height: 100%;
+    left: 0px;
+    position: fixed;
+    top: $menu-icon-margin + $menu-icon-dimension;
+    transform: translateX((-$menu-width));
+    transition: transform 150ms ease-in-out;
+    width: $menu-width;
+
+    ul {
+      margin: 20px 0px 20px 30px;
+      padding: 0px;
+
+      li {
+        list-style: none;
+        margin-bottom: 5px;
+        text-align: left;
+
+        #tags {
+          @include utils.disabled            
+        }
+
+        a {
+          font-size: 18px;
+        }
+      }
+    }
+
+    #socials {
+      margin-top: 0px;
+
+      .logo {
+        height: socials.$social-icon-dimension;
+        width: socials.$social-icon-dimension;
+      }
+    }
+  }
+
+  @include utils.screen-max-width() {
+    display: block;
+  }
+}
+

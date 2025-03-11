@@ -7,8 +7,14 @@
   pointer-events: none;
 }
 
-@mixin screen-width($max-width: config.$body-width + 15) {
+@mixin screen-max-width($max-width: config.$body-width + 15) {
    @media screen and (max-width: $max-width) {
+     @content;
+   }
+}
+
+@mixin screen-min-width($min-width: config.$body-width + 15) {
+   @media screen and (min-width: $min-width) {
      @content;
    }
 }

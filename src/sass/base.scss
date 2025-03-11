@@ -5,26 +5,36 @@
 @use "utils";
 
 $footer-side-margin: 20px;
-$footer-max-screen-width: config.$body-width + 2 * config.$padding-side + socials.$social-icon-width + $footer-side-margin - 1;
+$footer-max-screen-width: config.$body-width + 2 * config.$padding-side + socials.$social-icon-dimension + $footer-side-margin - 1;
 
 #site-container {
   margin: 20px auto 4rem auto;
   width: config.$body-width;
+
+  @include utils.screen-max-width() {
+    width: 100%;
+  }
+
+  #main-container {
+    padding-left: config.$padding-side;
+    padding-right: config.$padding-side;
+
+    // Required to position site content below mobile navbar
+    @include utils.screen-max-width() {
+      margin-top: 50px;
+      padding-top: 30px;
+    }
+  }
 
   footer {
     left: $footer-side-margin;
     position: absolute;
     top: 20px;
 
-    @include utils.screen-width($footer-max-screen-width) {
+    @include utils.screen-max-width($footer-max-screen-width) {
       display: none;
     }
   }
-}
-
-#main-container {
-  padding-left: config.$padding-side;
-  padding-right: config.$padding-side;
 }
 
 a {

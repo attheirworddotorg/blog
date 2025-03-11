@@ -1,11 +1,14 @@
 @use "sass:map";
 
 @use "anchor-link";
+@use "about";
 @use "base";
 @use "config";
-@use "desktop-nav";
+@use "footer";
 @use "index";
 @use "post";
+@use "components/mobile-nav";
+@use "components/desktop-nav";
 @use "components/post-header";
 @use "components/table-of-contents";
 
